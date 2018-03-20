@@ -21,8 +21,8 @@ ACCESS_KEY = ""
 SECRET_KEY = ""
 
 # API 请求地址
-MARKET_URL = "https://api.huobipro.com/market"
-TRADE_URL = "https://api.huobipro.com/v1"
+MARKET_URL = "https://api.huobipro.com"
+TRADE_URL = "https://api.huobipro.com"
 
 # 首次运行可通过get_accounts()获取acct_id,然后直接赋值,减少重复获取。
 ACCOUNT_ID = None
@@ -84,6 +84,8 @@ def api_key_get(params, request_path):
     params['Signature'] = createSign(params, method, host_name, request_path, SECRET_KEY)
 
     url = host_url + request_path
+    print(url)
+    print(params)
     return http_get_request(url, params)
 
 

@@ -5,6 +5,7 @@
 # @QQ      : 375235513
 # @github  : https://github.com/KlausQIU
 
+import json
 from Utils import *
 
 '''
@@ -432,6 +433,29 @@ def margin_balance(symbol):
 
     return api_key_get(params, url)
 
+def get_current_price(symbol):
+    data = get_ticker(symbol)
+    return data['tick']['close']
+
+def main():
+    # data = get_symbols()
+    # for item in data['data']:
+    #     print(item)
+
+    # symbol = 'btcusdt'
+    # period = '1min'
+    # size = 100
+    # data = get_kline(symbol, period, size)
+    # print(len(data['data']))
+    # for item in data['data']:
+    #     print(item)
+
+    # symbol = 'btcusdt'
+    # data = get_trade(symbol)
+    # print(data)
+
+    symbol = 'btcusdt'
+    print(get_current_price(symbol))
 
 if __name__ == '__main__':
-    print(get_symbols())
+    main()
